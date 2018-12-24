@@ -1,0 +1,99 @@
+CSS Grid layout is a new module that brings a 2D grid to CSS for the first time
+It replaces float layouts and using less and more readable and logical CSS and HTML
+Works perfectly together with flebox, which is best to handle 1D components and layouts
+Don't need to use 12 column layout like Bootstrap - can do this directly in CSS now
+
+Like with flexbox, in CSS grid, we have a grid container,
+and we can set display: grid or display: grid-inline.
+All direct children of grid container are grid items.
+
+The grid container has a column axis which runs top to bottom
+and a row axis which runs left to right.
+
+The vertical and horizontal lines that divide up the Grid
+are called grid lines. the edges of the container itself
+also count as grid lines.
+They're automatically number for columns and rows, starting
+at 1.
+
+The space between rows and columns is called the gutter.
+Row gutter can be different from column gutter.
+
+The space between two grid lines is called a track, whether
+vertical or horizontal. it's also called a column if vertical
+and a row if horizontal.
+
+A region bound by two vertical and two horizontal grid lines is
+called a grid area. If it's between adjacent horizontal
+and vertical grid lines, it's called a grid cell.
+
+********* Grid properties
+On the container:
+grid-template consists of:
+grid-template-rows
+grid-template-columns
+grid-template-areas
+
+grid-gap consists of:
+grid-row-gap
+grid-column-gap
+
+justify-items
+align-items
+justify-content
+align-content
+
+grid-auto-rows
+grid-auto-columns
+grid-auto-flow
+
+On an item:
+grid-row consists of:
+grid-row-start
+grid-row-end
+
+grid-column consists of:
+grid-column-start
+grid-column-end
+
+grid-area consists of:
+grid-row
+grid-column
+
+justify-self
+align-self
+
+order
+
+The fractional unit, fr, was introduced for CSS Grid and 
+represents the fraction of available space that will be occupied
+by an item.
+For instance, if we want 2 rows and 3 columns, with the third
+column occupying the rest of the width available, we would do:
+
+.container {
+  display: grid;
+  grid-template-rows: repeat(2, 150px);
+  grid-template-columns: repeat(2, 150px) 1fr;
+  grid-gap: 30px;
+}
+
+Or you could divide the entire space into n rows or columns
+that will take up the whole space, such as:
+
+.container {
+  display: grid;
+  grid-template-rows: repeat(2, 150px);
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
+}
+
+Or we could use fr for all of them, such as:
+.container {
+  display: grid;
+  grid-template-rows: repeat(2, 150px);
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-gap: 30px;
+
+And now the columns will occupy the whole space, but the
+middle column will be twice as wide as the other two
